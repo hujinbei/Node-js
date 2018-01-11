@@ -30,7 +30,8 @@ console.log('Hello World')
 * 缓存；
 * 插件支持；
 
-** 2. 安装express**
+2. 安装express
+
 (1.)在google chrome中搜索“ubuntu14.04安装express4”关键字，进入"[ubuntu nodejs + express4.x 安装 测试](http://blog.csdn.net/ivanx_cc/article/details/46827291)"
 
 (2.)根据教程中指示在终端输入命令，
@@ -48,7 +49,7 @@ npm install express -g
 npm install -g express-generator
 ```
 
-* 安装完成后可以使用** express -V** 命令查看版本。
+* 安装完成后可以使用" express -V" 命令查看版本。
 
 ![](express版本查看.png)
 
@@ -112,7 +113,7 @@ ejs (Embedded JavaScript) 是一个标签替换引擎,其语法与 ASP、 PHP �
 
 ![](express内容显示.png)
 
-**启动服务器，内容显示如下：**
+* 启动服务器，内容显示如下:
 
 ![](Hello World-express.png)
 
@@ -172,7 +173,7 @@ curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.
 
 ![](/Users/huhuhu/Desktop/sublime文件/nodejs/image/7.png)
 
-** 错误提示：**
+* 错误提示：
 
 * wget命令没有发现
 * rl：（35）服务器终止SSL运行
@@ -230,7 +231,7 @@ $ nvm
 ![](../nodejs/image/14.png)
 
 
-#在Ubuntu14.04虚拟机中安装node.js
+# 在Ubuntu14.04虚拟机中安装node.js
 
 一、首先进入Google浏览器搜索[node.js官网](https://nodejs.org/en/),进入**DOWNLOADS**页面，单击**DOWNLOAD**页面下方的“Installing Node.js via package manager”选项，进入官网中的[linux安装教程](https://nodejs.org/en/download/package-manager/)；
 
