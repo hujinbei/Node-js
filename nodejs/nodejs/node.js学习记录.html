@@ -1,0 +1,109 @@
+<h1><a name="user-content-nodejs" href="#nodejs" aria-hidden="true"><span></span></a>Node.js</h1>
+<h3><a name="user-content-hello-world" href="#hello-world" aria-hidden="true"><span></span></a>一、hello world</h3>
+<ul>
+<li>在sublime text中输入<br />
+<pre><code>console.log('Hello World')
+</code></pre><br />
+<img alt="" src="hello" title="world.png" /></li>
+</ul>
+<h6><a name="user-content-js-node" href="#js-node" aria-hidden="true"><span></span></a>保存为.js 后缀的文件名，在终端输入文件所在的位置，然后“运行node+文件名” 命令：</h6>
+<p><img alt="" src="helloworld.png" /></p>
+<h3><a name="user-content-express" href="#express" aria-hidden="true"><span></span></a>二、express</h3>
+<p><strong>1. expres框架</strong><br />
+(1.) express的功能：</p>
+<ul>
+<li>路由控制；</li>
+<li>模板解析支持；</li>
+<li>动态视图；</li>
+<li>用户会话；</li>
+<li>CSRF 保护；</li>
+<li>静态文件服务；</li>
+<li>错误控制器；</li>
+<li>访问日志；</li>
+<li>缓存；</li>
+<li>插件支持；</li>
+</ul>
+<p><strong>2. 安装express</strong><br />
+(1.)在google chrome中搜索“ubuntu14.04安装express4”关键字，进入&rdquo;<a href="http://blog.csdn.net/ivanx_cc/article/details/46827291">ubuntu nodejs + express4.x 安装 测试</a>&ldquo;</p>
+<p>(2.)根据教程中指示在终端输入命令，<br />
+<em> 安装express4.x，需要先执行以下配置 <br />
+<pre><code>npm config set registry http://registry.npmjs.org/
+</code></pre><br />
+</em> 然后再进行安装（因为新版express-generator 与expres 分开了，所以要执行以下两个命令）<br />
+<pre><code>npm install express -g
+npm install -g express-generator
+</code></pre><br />
+<em> 安装完成后可以使用<strong> express -V</strong> 命令查看版本。<br />
+<img alt="" src="express版本查看.png" /><br />
+</em> 建立工程<br />
+通过以下命令建立网站基本结构:<br />
+<pre><code>express -t ejs microblog
+</code></pre><br />
+<img alt="" src="建立microblog.png" /></p>
+<ul>
+<li>创建文件夹（与上一步同理）<ul>
+<li>在终端输入命令 express -e noejs添加文件夹。<br />
+<img alt="" src="express安装文件夹.png" /></li>
+</ul>
+</li>
+<li>npm install</li>
+</ul>
+<p><img alt="" src="install命令.png" /></p>
+<blockquote>
+<p>提示我们要进入其中运行 npm install(自动安装了依赖 ejs 和 express)</p>
+</blockquote>
+<ul>
+<li>
+<p>检查package.json文件，文件内容显示如下：<br />
+<img alt="" src="packagejson.png" /></p>
+<blockquote>
+<p>其中 dependencies 属性中有 express 和 ejs 。无参数的 npm install 的功能就是检查当前目录下的 package.json,并自动安装所有指定的依赖。</p>
+</blockquote>
+</li>
+<li>
+<p>npm start 运行express</p>
+</li>
+<li>ctrl+c 结束运行<br />
+<img alt="" src="start命令.png" /><blockquote>
+<p>这样启动一个服务就成功了， 可以通过 localhost：3000 在浏览器中访问欢迎页面。</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>3. 运行express</strong><br />
+(1.)打开刚才新创建的 noejs文件夹下roultes文件夹中的index.js文件。<br />
+<img alt="" src="noejs.png" /><br />
+<img alt="" src="routes.png" /><br />
+<img alt="" src="index.png" /><br />
+<em> 打开后文件内容如下图所示（此文件用于修改页面内容）。<br />
+<img alt="" src="index" title="hello world.png" /><br />
+ routes 是一个文件夹形式的本地模块,即 ./routes/index.js ,它的功能是为指定路径组织返回内容,相当于 MVC 架构中的控制器。<br />
+</em> 关闭此文件，打开noejs文件夹下的另一文件夹views中的index.ejs 文件,此文件中显示了内容的格式，关闭。<br />
+<img alt="" src="indexejs.png" /><br />
+ejs (Embedded JavaScript) 是一个标签替换引擎,其语法与 ASP、 PHP 相似,易于学习,目前被广泛应用。 Express默认提供的引擎是 jade,它颠覆了传统的模板引擎,制定了一套完整的语法用来生成 HTML 的每个标签结构,功能强大但不易学习。<br />
+<em> 打开终端（ctrl+alt+t），输入命令打开noejs文件夹（cd+文件夹名），再输入noejs文件夹下运行express的命令（npm + start），打开浏览器输入网址：</em>localhost：3000*，输入ctrl+c 关闭express；<br />
+<img alt="" src="express内容显示.png" /></p>
+<p><strong>启动服务器，内容显示如下：</strong><br />
+<img alt="" src="Hello" title="World-express.png" /></p>
+<p><strong>4. 注意！！！</strong><br />
+* 当重新修改代码后，需要重启服务器才能呈现出更改后的效果，或者可以使用 supervisor 实现监视代码修改和自动重启。</p>
+<p><strong>5. <t>三个 app.configure 函数:(分别指定了通用、开发和产品环境下的参数。)</t></strong><br />
+<em> 第一个 app.configure 直接接受了一个回调函数,后两个则只能在开发和产品环境中调用。<br />
+</em> app.set 是 Express 的<strong>参数设置工具</strong>,接受一个键(key)和一个值(value),可用的参数如下所示：<br />
+<em>  basepath :基础地址,通常用于 res.redirect() 跳转。<br />
+</em> views :视图文件的目录,存放模板文件。<br />
+<em> view engine :视图模板引擎。<br />
+</em> view options :全局视图参数对象。<br />
+<em> view cache :启用视图缓存。<br />
+</em> case sensitive routes :路径区分大小写。<br />
+<em> strict routing :严格路径,启用后不会忽略路径末尾的“ / ”。<br />
+</em> jsonp callback :开启透明的 JSONP 支持。<br />
+6. app.configure中启用的五个中间件：<br />
+<em> bodyParser：功能是解析客户端请求，通常是POST发送的内容。<br />
+</em> methodOverride：用于支持定制的HTTP的方法。<br />
+<em> router：是项目的路由支持。<br />
+</em> static：提供静态文件支持。<br />
+* errorHandler：错误控制器。<br />
+二. 文件夹的意义<br />
+1. bin ------目录：www文件更改端口<br />
+2. node_modules ------模板<br />
+3. public ---- image 存储图片，javascripts 存储js文件，stylesheets 页面风格存储CSS文件</p>
